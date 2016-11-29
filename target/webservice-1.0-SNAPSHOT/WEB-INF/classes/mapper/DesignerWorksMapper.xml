@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dcgj.web.dao.DesignerWorksMapper" >
+  <resultMap id="BaseResultMap" type="com.dcgj.web.entity.DesignerWorks" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="works_id" property="worksId" jdbcType="INTEGER" />
+    <result column="works_desc" property="worksDesc" jdbcType="VARCHAR" />
+    <result column="works_thumbnail" property="worksThumbnail" jdbcType="VARCHAR" />
+    <result column="designer_id" property="designerId" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, works_id, works_desc, works_thumbnail, designer_id
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from designer_works
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from designer_works
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.dcgj.web.entity.DesignerWorks" >
+    insert into designer_works (id, works_id, works_desc, 
+      works_thumbnail, designer_id)
+    values (#{id,jdbcType=INTEGER}, #{worksId,jdbcType=INTEGER}, #{worksDesc,jdbcType=VARCHAR}, 
+      #{worksThumbnail,jdbcType=VARCHAR}, #{designerId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dcgj.web.entity.DesignerWorks" >
+    insert into designer_works
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="worksId != null" >
+        works_id,
+      </if>
+      <if test="worksDesc != null" >
+        works_desc,
+      </if>
+      <if test="worksThumbnail != null" >
+        works_thumbnail,
+      </if>
+      <if test="designerId != null" >
+        designer_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="worksId != null" >
+        #{worksId,jdbcType=INTEGER},
+      </if>
+      <if test="worksDesc != null" >
+        #{worksDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="worksThumbnail != null" >
+        #{worksThumbnail,jdbcType=VARCHAR},
+      </if>
+      <if test="designerId != null" >
+        #{designerId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dcgj.web.entity.DesignerWorks" >
+    update designer_works
+    <set >
+      <if test="worksId != null" >
+        works_id = #{worksId,jdbcType=INTEGER},
+      </if>
+      <if test="worksDesc != null" >
+        works_desc = #{worksDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="worksThumbnail != null" >
+        works_thumbnail = #{worksThumbnail,jdbcType=VARCHAR},
+      </if>
+      <if test="designerId != null" >
+        designer_id = #{designerId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dcgj.web.entity.DesignerWorks" >
+    update designer_works
+    set works_id = #{worksId,jdbcType=INTEGER},
+      works_desc = #{worksDesc,jdbcType=VARCHAR},
+      works_thumbnail = #{worksThumbnail,jdbcType=VARCHAR},
+      designer_id = #{designerId,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

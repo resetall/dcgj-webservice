@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dcgj.web.dao.BrandNewMapper" >
+  <resultMap id="BaseResultMap" type="com.dcgj.web.entity.BrandNew" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="news_title" property="newsTitle" jdbcType="VARCHAR" />
+    <result column="news_summary" property="newsSummary" jdbcType="VARCHAR" />
+    <result column="news_id" property="newsId" jdbcType="INTEGER" />
+    <result column="publish_date" property="publishDate" jdbcType="TIMESTAMP" />
+    <result column="isValid" property="isvalid" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.dcgj.web.entity.BrandNew" extends="BaseResultMap" >
+    <result column="news_content" property="newsContent" jdbcType="LONGVARBINARY" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, news_title, news_summary, news_id, publish_date, isValid
+  </sql>
+  <sql id="Blob_Column_List" >
+    news_content
+  </sql>
+  <select id="selectNewsGroupByDate" resultType="com.dcgj.web.entity.BrandNew">
+    select *
+    from brand_news
+    order by publish_date desc limit 5
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from brand_news
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from brand_news
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.dcgj.web.entity.BrandNew" >
+    insert into brand_news (id, news_title, news_summary, 
+      news_id, publish_date, isValid, 
+      news_content)
+    values (#{id,jdbcType=INTEGER}, #{newsTitle,jdbcType=VARCHAR}, #{newsSummary,jdbcType=VARCHAR}, 
+      #{newsId,jdbcType=INTEGER}, #{publishDate,jdbcType=TIMESTAMP}, #{isvalid,jdbcType=INTEGER}, 
+      #{newsContent,jdbcType=LONGVARBINARY})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dcgj.web.entity.BrandNew" >
+    insert into brand_news
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="newsTitle != null" >
+        news_title,
+      </if>
+      <if test="newsSummary != null" >
+        news_summary,
+      </if>
+      <if test="newsId != null" >
+        news_id,
+      </if>
+      <if test="publishDate != null" >
+        publish_date,
+      </if>
+      <if test="isvalid != null" >
+        isValid,
+      </if>
+      <if test="newsContent != null" >
+        news_content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="newsTitle != null" >
+        #{newsTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="newsSummary != null" >
+        #{newsSummary,jdbcType=VARCHAR},
+      </if>
+      <if test="newsId != null" >
+        #{newsId,jdbcType=INTEGER},
+      </if>
+      <if test="publishDate != null" >
+        #{publishDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isvalid != null" >
+        #{isvalid,jdbcType=INTEGER},
+      </if>
+      <if test="newsContent != null" >
+        #{newsContent,jdbcType=LONGVARBINARY},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dcgj.web.entity.BrandNew" >
+    update brand_news
+    <set >
+      <if test="newsTitle != null" >
+        news_title = #{newsTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="newsSummary != null" >
+        news_summary = #{newsSummary,jdbcType=VARCHAR},
+      </if>
+      <if test="newsId != null" >
+        news_id = #{newsId,jdbcType=INTEGER},
+      </if>
+      <if test="publishDate != null" >
+        publish_date = #{publishDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isvalid != null" >
+        isValid = #{isvalid,jdbcType=INTEGER},
+      </if>
+      <if test="newsContent != null" >
+        news_content = #{newsContent,jdbcType=LONGVARBINARY},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.dcgj.web.entity.BrandNew" >
+    update brand_news
+    set news_title = #{newsTitle,jdbcType=VARCHAR},
+      news_summary = #{newsSummary,jdbcType=VARCHAR},
+      news_id = #{newsId,jdbcType=INTEGER},
+      publish_date = #{publishDate,jdbcType=TIMESTAMP},
+      isValid = #{isvalid,jdbcType=INTEGER},
+      news_content = #{newsContent,jdbcType=LONGVARBINARY}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dcgj.web.entity.BrandNew" >
+    update brand_news
+    set news_title = #{newsTitle,jdbcType=VARCHAR},
+      news_summary = #{newsSummary,jdbcType=VARCHAR},
+      news_id = #{newsId,jdbcType=INTEGER},
+      publish_date = #{publishDate,jdbcType=TIMESTAMP},
+      isValid = #{isvalid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

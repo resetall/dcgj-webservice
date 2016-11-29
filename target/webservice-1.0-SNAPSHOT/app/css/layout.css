@@ -1,0 +1,36 @@
+body {
+    padding-top: 80px;
+    background-color: #f2f2f2;
+}
+#footer{
+    margin-top: 15px;
+}
+
+
+.flex-row .col-lg-10{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+.flex-row .col-lg-10 > [class*='col-'] {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-col-none-horizontal-padding{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.flex-col-none-left-padding{
+    padding-left: 0px;
+}
+.flex-col-none-right-padding{
+    padding-right: 0px;
+}
+
+.flex-image{
+    position: relative;
+    padding-bottom: 62%;
+    overflow: hidden;
+}

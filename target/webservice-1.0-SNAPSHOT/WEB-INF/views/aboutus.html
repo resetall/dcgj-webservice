@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>顶层国际设计装饰</title>
+
+    <!-- Bootstrap -->
+    <link href="/app/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/app/css/layout.css" rel="stylesheet">
+    <link href="/app/css/font.css" rel="stylesheet">
+    <link href="/app/css/style.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=b2F4twl3UlYsrlULy81NyuG1oSmCvuGd"></script>
+    <style type="text/css">
+        .nav-pills>li.active>a,.nav-pills>li.active>a:focus,.nav-pills>li.active>a:hover{color:#434343;background-color:#eeeeee}
+        .nav-pills li a{
+            color: #909090;
+        }
+        #companyDesc p{
+            text-indent:2em;    /*每个P段落，首行空出两个空格，即缩进两个字符*/
+            font-family: "Microsoft YaHei", "宋体", "Segoe UI", "Lucida Grande", Helvetica, Arial, sans-serif, FreeSans, Arimo;
+            font-size: 16px;
+            color: #5D5D5D;
+        }
+        #employ .sub-title{
+            font-family: "Microsoft YaHei", "微软雅黑", "Segoe UI", "Lucida Grande", Helvetica, Arial, sans-serif, FreeSans, Arimo;
+            font-size: 20px;
+            color: #3c3c3c;
+            font-weight:600;
+        }
+        #employ .employ_info p{
+            padding-top: 8px;
+            padding-left: 60px;
+            font-family: "Microsoft YaHei", "宋体", "Segoe UI", "Lucida Grande", Helvetica, Arial, sans-serif, FreeSans, Arimo;
+            font-size: 13px;
+            color: #5D5D5D;
+        }
+        .form-group span{
+            font-family: "Microsoft YaHei", "微软雅黑", "Segoe UI", "Lucida Grande", Helvetica, Arial, sans-serif, FreeSans, Arimo;
+            font-size: 11px;
+            color: #8c8c8c;
+        }
+        .form-group label{
+            font-family: "Microsoft YaHei", "微软雅黑", "Segoe UI", "Lucida Grande", Helvetica, Arial, sans-serif, FreeSans, Arimo;
+            font-size: 16px;
+            color: #3c3c3c;
+        }
+        .dateset{
+            color: #eeeeee;
+            font-size: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- 页眉 -->
+    <div class="container-fluid" id="header">
+        <!-- 导航条 -->
+        <nav class="navbar navbar-default navbar-fixed-top shadow-design-nav">
+            <div class="container-fluid">
+                <div class="navbar-header hidden-xs hidden-sm">
+                    <div class="">
+                        <img alt="Brand" src="/app/images/logo_index.png" style="max-width: 150px;margin-left: 100px">
+                    </div>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-left">
+                        <li>
+                            <a href="/index">
+                                <div class="font-nav-CN">首页</div>
+                                <div class="font-nav-EN">Home</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/design">
+                                <div class="font-nav-CN">作品案例</div>
+                                <div class="font-nav-EN">Design Solutions</div>
+                            </a></li>
+                        <li>
+                            <a href="/museum">
+                                <div class="font-nav-CN">家装体验馆</div>
+                                <div class="font-nav-EN">Decorate Experience</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/brand">
+                                <div class="font-nav-CN">品牌实力</div>
+                                <div class="font-nav-EN">Brand Strength</div>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a href="#">
+                                <div class="font-nav-CN">关于我们</div>
+                                <div class="font-nav-EN">About Us</div>
+                            </a>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div>
+        </nav>
+    </div>
+
+    <!-- 内容 -->
+    <div class="container-fluid" id="content">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 flex-col-none-horizontal-padding">
+                <img src="/app/images/aboutus-top.png" class="img-responsive carousel-inner center-block">
+            </div>
+            <div class="col-lg-1 col-md-1"></div>
+            <div class="col-lg-10 col-md-10" style="background-color: #ffffff;margin-top: 15px">
+                <div class="col-lg-12 col-md-12" id="myTabs" style="padding-top: 15px">
+
+                    <ul class="nav nav-pills">
+                        <li role="presentation" class="active">
+                            <a href="#companyDesc" role="tab" data-toggle="tab">公司简介</a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#storeInfo" role="tab" data-toggle="tab">门店信息</a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#employ" role="tab" data-toggle="tab">诚聘英才</a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#feedback" role="tab" data-toggle="tab">意见反馈</a>
+                        </li>
+                    </ul>
+
+                    <!-- Tab panes -->
+                    <div class="tab-content col-md-12 col-sm-12" style="padding-top: 10px">
+                        <div role="tabpanel" class="tab-pane active" id="companyDesc" style="padding-top: 20px;padding-bottom: 20px">
+                            <p>
+                                作为国内领先、山西省首家互联网家装企业，顶层国际设计装饰公司凭借着雄厚的品牌和资源竞争优势、工程施工竞争优势、人才竞争优势、管理竞争优势、营销竞争优势以
+                                及企业文化竞争优势，再加上逐步形成的F2C运营管理模式，使公司的核心竞争力和市场影响力大幅提升。
+                            </p>
+                            <p>
+                                令客户满意的设计理念、精益求精的施工工艺、科学完善的公司经营管理，顶层国际设计装饰公司从”优秀的设计人才，优秀的设计方案，优秀的装饰建材，优秀的装修施工，
+                                优秀的生活体验”五优服务体系全面迈向“五优卓越服务体系”，打造出了一系列优秀的家装样板工程顶层国际设计装饰公司培养和储备了大量优秀的设计精英和工程项目经理。
+                                确保客户拥有最完美的家装体验最高品质的服务。严格保证每个工程项目的设计和施工质量及进度要求，赢得了众多客户的信任和赞誉。
+                            </p>
+                            <p>
+                                顶层国际设计装饰公司自成立以来就重视企业文化建设，公司相信卓越的企业文化将进一步增强顶层国际设计装饰公司的综合竞争力，使公司成为山西省乃至全国装饰行业最
+                                有影响力的企业之一。
+                            </p>
+                            <p>
+                                顶层国际设计装饰公司以“做良心装饰，创百年企业“为企业宗旨，以“创未有之美、葆基业长青”为企业使命，以“踏实、精致、创新”作为企业精神，以”国际化、标准
+                                化、中国气象“为企业目标，以“设计之美，工程之善，价格之真”为企业价值观；“天下无不是的客户”的服务理念和“返璞归真 绿色天然”的设计理念，都展现出顶层国际设
+                                计装饰公司在互联网时代创新企业应有的时代担当和先锋意识，同时能够最大程度地创造经济和社会效益，致力于为广大客户提供超值服务，获得了众多新老客户的信任与支持。
+                                其看得见的品质和保证广受客户认可和好评。
+                            </p>
+                            <p>
+                                顶层国际设计装饰公司已与太原理工大学、山西农业大学、山西大学等高校签约并开展深度合作，在装饰行业校企合作领域起到示范作用。
+                                未来，顶尖国际设计装饰公司将继续强化互联网家装等优势领域，结合国内外新技术，新材料与设计新理念，赋予设计作品新的观感与施工工艺新高度，持续满足客户高端个
+                                性化需求和期望。
+                            </p>
+                            <p>
+                                颠覆传统、创新未来，顶层国际设计装饰公司与客户共辉煌。
+                            </p>
+                            <p class="dateset text-right">2016-7-24</p>
+                        </div>
+                        <!-- 门店信息 -->
+                        <div role="tabpanel" class="tab-pane" id="storeInfo">
+                            <div id="allmap"></div>
+                        </div>
+                        <!-- 诚聘英才 -->
+                        <div role="tabpanel" class="tab-pane" id="employ">
+                            <div class="row">
+                                <div class="col-sm-6 col-md-6">
+                                    <div class="row">
+                                        <div style="padding: 10px;margin-top: 10px">
+                                            <img src="/app/images/aboutus-employ-icon1.png">
+                                            <span class="sub-title" style="padding-left: 7px">设计部</span>
+                                        </div>
+                                        <div style="padding-left: 67px" id="employ_content_1">
+                                            高级设计师：2人      设计师助理：5人      软装设计师：1人
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div style="padding: 10px;margin-top: 20px">
+                                            <img src="/app/images/aboutus-employ-icon2.png">
+                                            <span class="sub-title" style="padding-left: 7px">业务部</span>
+                                        </div>
+                                        <div style="padding-left: 67px" id="employ_content_2">
+                                            高级设计师：2人      设计师助理：5人      软装设计师：1人
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div style="padding: 10px;margin-top: 20px">
+                                            <img src="/app/images/aboutus-employ-icon3.png">
+                                            <span class="sub-title" style="padding-left: 7px">工程部</span>
+                                        </div>
+                                        <div style="padding-left: 67px" id="employ_content_3">
+                                            高级设计师：2人      设计师助理：5人      软装设计师：1人
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div style="padding-top: 50px;padding-bottom: 20px" class="employ_info">
+                                            <p>联 系 人：张女士（人力主管）</p>
+                                            <p>应聘电话：0351-2164243 15535133771</p>
+                                            <p>面试地址：太原高新区科工冷却电商创新中心3F</p>
+                                            <p>面试时间：上午10：00 - 12：00     下午15：00 - 17：30</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-6">
+                                    <img src="/app/images/aboutus-employ-bg.png" class="img-responsive carousel-inner center-block"
+                                         style="padding-top: 20%"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="feedback">
+                            <div class="row">
+                                <div class="col-md-1"></div>
+                                <div class="col-md-9" style="padding-top: 20px;padding-bottom: 30px">
+                                    <form action="">
+                                        <div class="form-group">
+                                            <label for="textArea">反馈内容</label>
+                                            <textarea id="textArea" class="form-control" rows="6"></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="telPhone">联系电话</label>
+                                            <span>（顶层国际将对您的联系方式严格保密）</span>
+                                            <input type="text" class="form-control" id="telPhone">
+                                        </div>
+                                        <button type="submit" class="btn btn-warning" style="width: 15%;margin-top: 10px">提交反馈</button>
+                                    </form>
+                                </div>
+                                <div class="col-md-2"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-1 col-md-1"></div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <div class="panel-footer" id="footer">
+        <div class="row" style="padding-top: 20px">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-10">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-6 text-center font-footer-info">Tel：400-800-9446 &nbsp;&nbsp; Add:平阳南路晋阳解口君怡创新城5号商铺3层</div>
+                <div class="col-lg-3 text-right">
+                    <button class="btn btn-default">
+                        顶层国际集团→
+                    </button>
+                </div>
+            </div>
+            <div class="col-lg-1"></div>
+        </div>
+        <div class="row" style="padding-top: 5px;padding-bottom: 10px">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-10">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-6 text-center">
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-2">
+                        <a href="#">
+                            关于我们
+                        </a>
+                    </div>
+                    <div class="col-lg-2">
+                        <a href="#">
+                            公司简介
+                        </a>
+                    </div>
+                    <div class="col-lg-2">
+                        <a href="#">
+                            门店信息
+                        </a>
+                    </div>
+                    <div class="col-lg-2">
+                        <a href="#">
+                            诚聘英才
+                        </a>
+                    </div>
+                    <div class="col-lg-2">
+                        <a href="#">
+                            意见反馈
+                        </a>
+                    </div>
+                    <div class="col-lg-1"></div>
+                </div>
+                <div class="col-lg-3"></div>
+            </div>
+            <div class="col-lg-1"></div>
+        </div>
+        <div class="row">
+            <div class="col-lg-1" ></div>
+            <div class="col-lg-10">
+                <div style="background-color: #3c3c3c;height: 1px;border-top: groove"></div>
+            </div>
+            <div class="col-lg-1"></div>
+        </div>
+        <div class="row">
+            <div class="col-lg-1" ></div>
+            <div class="col-lg-10 text-center font-footer-company" style="padding: 10px;">
+                &copy; 2016 顶层国际设计装饰有限公司 All Rights Reserved  <span style="padding-left: 10px">晋ICP备0548614123号</span>
+            </div>
+            <div class="col-lg-1"></div>
+        </div>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script> -->
+    <script src="/app/js/jquery-1.11.2.min.js" type="text/javascript"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/app/js/bootstrap.min.js"></script>
+</body>
+    <script type="text/javascript">
+        $('#myTabs ul li a').click(function (e) {
+            e.preventDefault()
+            $(this).tab('show')
+        })
+    </script>
+    <!--
+    <script type="text/javascript">
+        // 百度地图API功能
+        var map = new BMap.Map("allmap");    // 创建Map实例
+        map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);  // 初始化地图,设置中心点坐标和地图级别
+        map.addControl(new BMap.MapTypeControl());   //添加地图类型控件
+        map.setCurrentCity("太原");          // 设置地图显示的城市 此项是必须设置的
+        map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+    </script>
+    -->
+</html>

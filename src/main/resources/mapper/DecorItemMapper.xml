@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dcgj.web.dao.DecorItemMapper" >
+  <resultMap id="BaseResultMap" type="com.dcgj.web.entity.DecorItem" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="image_id" property="imageId" jdbcType="INTEGER" />
+    <result column="image_url" property="imageUrl" jdbcType="VARCHAR" />
+    <result column="image_title" property="imageTitle" jdbcType="VARCHAR" />
+    <result column="image_description" property="imageDescription" jdbcType="VARCHAR" />
+    <result column="designer" property="designer" jdbcType="VARCHAR" />
+    <result column="collect_count" property="collectCount" jdbcType="INTEGER" />
+    <result column="click_count" property="clickCount" jdbcType="INTEGER" />
+    <result column="tags" property="tags" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, image_id, image_url, image_title, image_description, designer, collect_count, 
+    click_count, tags
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from decor_display
+    where id = #{id,jdbcType=INTEGER}
+    order by collect_count desc
+  </select>
+  <select id="selectAllRecord" resultType="com.dcgj.web.entity.DecorItem">
+    select
+    <include refid="Base_Column_List" />
+    from decor_display
+  </select>
+  <select id="selectByTags" resultType="com.dcgj.web.entity.DecorItem" parameterType="java.lang.String" >
+    select * from decor_display
+    <where>
+      ${tags}
+    </where>
+    order by collect_count desc
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from decor_display
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.dcgj.web.entity.DecorItem" >
+    insert into decor_display (id, image_id, image_url, 
+      image_title, image_description, designer, 
+      collect_count, click_count, tags
+      )
+    values (#{id,jdbcType=INTEGER}, #{imageId,jdbcType=INTEGER}, #{imageUrl,jdbcType=VARCHAR}, 
+      #{imageTitle,jdbcType=VARCHAR}, #{imageDescription,jdbcType=VARCHAR}, #{designer,jdbcType=VARCHAR}, 
+      #{collectCount,jdbcType=INTEGER}, #{clickCount,jdbcType=INTEGER}, #{tags,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.dcgj.web.entity.DecorItem" >
+    insert into decor_display
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="imageId != null" >
+        image_id,
+      </if>
+      <if test="imageUrl != null" >
+        image_url,
+      </if>
+      <if test="imageTitle != null" >
+        image_title,
+      </if>
+      <if test="imageDescription != null" >
+        image_description,
+      </if>
+      <if test="designer != null" >
+        designer,
+      </if>
+      <if test="collectCount != null" >
+        collect_count,
+      </if>
+      <if test="clickCount != null" >
+        click_count,
+      </if>
+      <if test="tags != null" >
+        tags,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="imageId != null" >
+        #{imageId,jdbcType=INTEGER},
+      </if>
+      <if test="imageUrl != null" >
+        #{imageUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="imageTitle != null" >
+        #{imageTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="imageDescription != null" >
+        #{imageDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="designer != null" >
+        #{designer,jdbcType=VARCHAR},
+      </if>
+      <if test="collectCount != null" >
+        #{collectCount,jdbcType=INTEGER},
+      </if>
+      <if test="clickCount != null" >
+        #{clickCount,jdbcType=INTEGER},
+      </if>
+      <if test="tags != null" >
+        #{tags,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dcgj.web.entity.DecorItem" >
+    update decor_display
+    <set >
+      <if test="imageId != null" >
+        image_id = #{imageId,jdbcType=INTEGER},
+      </if>
+      <if test="imageUrl != null" >
+        image_url = #{imageUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="imageTitle != null" >
+        image_title = #{imageTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="imageDescription != null" >
+        image_description = #{imageDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="designer != null" >
+        designer = #{designer,jdbcType=VARCHAR},
+      </if>
+      <if test="collectCount != null" >
+        collect_count = #{collectCount,jdbcType=INTEGER},
+      </if>
+      <if test="clickCount != null" >
+        click_count = #{clickCount,jdbcType=INTEGER},
+      </if>
+      <if test="tags != null" >
+        tags = #{tags,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dcgj.web.entity.DecorItem" >
+    update decor_display
+    set image_id = #{imageId,jdbcType=INTEGER},
+      image_url = #{imageUrl,jdbcType=VARCHAR},
+      image_title = #{imageTitle,jdbcType=VARCHAR},
+      image_description = #{imageDescription,jdbcType=VARCHAR},
+      designer = #{designer,jdbcType=VARCHAR},
+      collect_count = #{collectCount,jdbcType=INTEGER},
+      click_count = #{clickCount,jdbcType=INTEGER},
+      tags = #{tags,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

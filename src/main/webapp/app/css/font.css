@@ -1,0 +1,41 @@
+.font-nav-brand{
+    font-family: "Microsoft YaHei UI";
+    font-size: 1.2em;
+    font-weight:900;
+    color: #0f0f0f;
+}
+
+.font-nav-CN{
+    font-family: "Microsoft YaHei UI";
+    font-size: 1.2em;
+    font-weight:400;
+    color: #0f0f0f;
+}
+
+.font-nav-EN{
+    font-family: Ebrima;
+    font-size: 1em;
+    color: #acacac;
+}
+
+#footer .font-footer-info{
+    font-family: "Microsoft YaHei UI";
+    font-size: 0.95em;
+    color: #222222;
+}
+#footer a{
+    font-family: "Adobe 黑体 Std R";
+    font-size: 0.85em;
+    color: #5e5e5e;
+}
+#footer button{
+    background-color: #8c8c8c;
+    border: none;
+    font-size: 0.8em;
+    color: #ffffff;
+}
+#footer .font-footer-company{
+    font-family: "Adobe 黑体 Std R";
+    font-size: 0.8em;
+    color: #555555;
+}

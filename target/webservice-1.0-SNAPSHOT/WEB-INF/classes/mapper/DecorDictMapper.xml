@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dcgj.web.dao.DecorDictMapper" >
+  <resultMap id="BaseResultMap" type="com.dcgj.web.entity.DecorDict" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="dict_space" property="dictSpace" jdbcType="VARCHAR" />
+    <result column="dict_layout" property="dictLayout" jdbcType="VARCHAR" />
+    <result column="dict_style" property="dictStyle" jdbcType="VARCHAR" />
+    <result column="dict_color" property="dictColor" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, dict_space, dict_layout, dict_style, dict_color
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from decor_dict
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from decor_dict
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.dcgj.web.entity.DecorDict" >
+    insert into decor_dict (id, dict_space, dict_layout, 
+      dict_style, dict_color)
+    values (#{id,jdbcType=INTEGER}, #{dictSpace,jdbcType=VARCHAR}, #{dictLayout,jdbcType=VARCHAR}, 
+      #{dictStyle,jdbcType=VARCHAR}, #{dictColor,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dcgj.web.entity.DecorDict" >
+    insert into decor_dict
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="dictSpace != null" >
+        dict_space,
+      </if>
+      <if test="dictLayout != null" >
+        dict_layout,
+      </if>
+      <if test="dictStyle != null" >
+        dict_style,
+      </if>
+      <if test="dictColor != null" >
+        dict_color,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="dictSpace != null" >
+        #{dictSpace,jdbcType=VARCHAR},
+      </if>
+      <if test="dictLayout != null" >
+        #{dictLayout,jdbcType=VARCHAR},
+      </if>
+      <if test="dictStyle != null" >
+        #{dictStyle,jdbcType=VARCHAR},
+      </if>
+      <if test="dictColor != null" >
+        #{dictColor,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dcgj.web.entity.DecorDict" >
+    update decor_dict
+    <set >
+      <if test="dictSpace != null" >
+        dict_space = #{dictSpace,jdbcType=VARCHAR},
+      </if>
+      <if test="dictLayout != null" >
+        dict_layout = #{dictLayout,jdbcType=VARCHAR},
+      </if>
+      <if test="dictStyle != null" >
+        dict_style = #{dictStyle,jdbcType=VARCHAR},
+      </if>
+      <if test="dictColor != null" >
+        dict_color = #{dictColor,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dcgj.web.entity.DecorDict" >
+    update decor_dict
+    set dict_space = #{dictSpace,jdbcType=VARCHAR},
+      dict_layout = #{dictLayout,jdbcType=VARCHAR},
+      dict_style = #{dictStyle,jdbcType=VARCHAR},
+      dict_color = #{dictColor,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

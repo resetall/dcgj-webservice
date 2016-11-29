@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>顶层国际设计装饰</title>
+
+    <!-- Bootstrap -->
+    <link href="/app/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/app/css/layout.css" rel="stylesheet">
+    <link href="/app/css/font.css" rel="stylesheet">
+    <link href="/app/css/style.css" rel="stylesheet">
+    <link href="/app/css/animate.css" rel="stylesheet">
+    <link href="/app/css/jquery-multiple-filter.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="/app/fonts/font-awesome-4.3.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="/app/css/default.css">
+    <link rel="stylesheet" type="text/css" href="/app/css/style2.css">
+    <script src="/app/js/modernizr-custom.js"></script>
+    <link rel="stylesheet" type="text/css" href="/app/css/cityPicker.css">
+
+    <!--[if IE]>
+    <script src="http://libs.useso.com/js/html5shiv/3.7/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style type="text/css">
+        .desc p{
+            color: #404040;
+            font-size: 15px;
+        }
+        #legend legend{
+            font-size: 16px;
+            margin-bottom: 7px;
+        }
+        #legend p{
+            font-size: 10px;
+            color: #5e5e5e;
+        }
+        .right-toolbar{
+            position: fixed;
+            padding-top: 60px;
+
+        }
+        .right-toolbar .iconfont{
+            color: #3c3c3c;
+            font-size: 42px;
+
+            transition:color 0.5s ease-out;
+            -moz-transition:color 0.5s ease-out; /* Firefox 4 */
+            -webkit-transition:color 0.5s ease-out; /* Safari and Chrome */
+            -o-transition:color 0.5s ease-out; /* Opera */
+        }
+        .right-toolbar .iconfont:hover{
+            color: firebrick;
+        }
+
+        .goTop{
+            display: inline-block;
+            bottom: 30px;
+            position: fixed;
+
+            color: #3c3c3c;
+            font-size: 42px;
+
+            -webkit-transition: all 0.5s;
+            -moz-transition: all 0.5s;
+            transition: all 0.5s;
+
+            visibility: hidden;
+            opacity: 0;
+        }
+        .goTop:hover{
+            opacity: .8;
+            color: firebrick;
+        }
+        .cd-is-visible {
+            visibility: visible;
+            opacity: 1;
+        }
+        .cd-fade-out {
+            opacity: .5;
+        }
+        #cityChoice{
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid" id="header">
+        <!-- 导航条 -->
+        <nav class="navbar navbar-default navbar-fixed-top shadow-design-nav">
+            <div class="container-fluid">
+                <div class="navbar-header hidden-xs hidden-sm">
+                    <div class="">
+                        <img alt="Brand" src="/app/images/logo_index.png" style="max-width: 150px;margin-left: 100px">
+                    </div>
+                </div>
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand visible-xs-inline-block font-nav-brand" href="#">顶层国际设计装饰</a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-left">
+                        <li>
+                            <a href="/index">
+                                <div class="font-nav-CN">首页</div>
+                                <div class="font-nav-EN">Home</div>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a href="/design">
+                                <div class="font-nav-CN">作品案例</div>
+                                <div class="font-nav-EN">Design Solutions</div>
+                            </a></li>
+                        <li>
+                            <a href="/museum">
+                                <div class="font-nav-CN">家装体验馆</div>
+                                <div class="font-nav-EN">Decorate Experience</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/brand">
+                                <div class="font-nav-CN">品牌实力</div>
+                                <div class="font-nav-EN">Brand Strength</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/aboutus">
+                                <div class="font-nav-CN">关于我们</div>
+                                <div class="font-nav-EN">About Us</div>
+                            </a>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div>
+        </nav>
+    </div>
+
+    <div class="container-fluid" id="content">
+
+        <div class="col-lg-1 col-md-1"></div>
+        <div class="col-lg-10 col-md-10 flex-col-none-horizontal-padding">
+            <!-- 顶部路径导航 -->
+            <div class="row">
+                <ol class="breadcrumb" style="background:none">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="design.html">作品案例</a></li>
+                    <li class="active">风范大宅</li>
+                </ol>
+            </div> <!-- /路径导航 -->
+
+            <!-- 缩略图、文字介绍、用户登记 -->
+            <div class="row">
+                <div class="col-lg-9 col-md-8">
+                    <div class="col-lg-4 col-md-4 flex-col-none-horizontal-padding">
+                        <img src="/app/images/decor-image-video.png" class="img-responsive carousel-inner center-block">
+                    </div>
+                    <div class="col-lg-8 col-md-8 desc">
+                        <h2 style="color: #0f0f0f">风范大宅</h2>
+                        <p>针对300㎡的别墅户型,居室内装修高贵精致，还要有文化氛围。 彰显别墅的大宅风范，以达到业主理想的居室要求。</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <div id="legend" class="">
+                        <legend>免费设计</legend>
+                        <p>5秒登记，免费获取专业设计方案</p>
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon"></span>
+                        <input type="text" class="form-control" placeholder="您的称呼" aria-describedby="basic-addon1">
+                    </div>
+                    <div class="input-group" style="padding-top: 5px">
+                        <span class="input-group-addon"></span>
+                        <input type="text" class="form-control" placeholder="您的电话" aria-describedby="basic-addon1">
+                    </div>
+                    <button class="btn btn-info" style="width: 100%;margin-top: 8px;margin-left: auto;margin-right: auto;">立即预约</button>
+                </div>
+            </div> <!-- /缩略图等 -->
+
+            <!-- 条件筛选 -->
+            <div class="row" style="padding-top: 20px">
+                <div class="col-lg-12">
+                    <div id="jmf"></div>
+                </div>
+            </div> <!-- /条件筛选 -->
+
+            <!-- 瀑布流布局 -->
+            <div class="row content">
+                <div class="grid">
+                    <div class="grid__item col-lg-3 col-md-4" data-size="1280x857">
+                        <a href="/app/img/original/6.jpg" class="img-wrap thumbnail">
+                            <img src="/app/img/thumbs/6.jpg" class="img-responsive carousel-inner center-block"/>
+                            <div class="description description--grid">
+                                <h3>Mother's Love</h3>
+                                <p>Every time you drink a glass of milk or eat a piece of cheese, you harm a mother. Please go vegan. <em>&mdash; Gary L. Francione</em></p>
+                                <div class="details">
+                                    <ul>
+                                        <li><i class="icon iconfont icon-liulan"></i><span>20</span></li>
+                                        <li><i class="icon iconfont icon-shoucangcang"></i><span>30</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="grid__item col-lg-3 col-md-4" data-size="1280x1280">
+                        <a href="/app/img/original/7.jpg" class="img-wrap thumbnail">
+                            <img src="/app/img/thumbs/7.jpg" class="img-responsive carousel-inner center-block" />
+                            <div class="description description--grid">
+                                <h3>Silent Killer</h3>
+                                <p>Cows’ milk protein may be the single most significant chemical carcinogen to which humans are exposed. <em>&mdash; T. Colin Campbell</em></p>
+                                <div class="details">
+                                    <ul>
+                                        <li><i class="icon iconfont icon-liulan"></i><span>20</span></li>
+                                        <li><i class="icon iconfont icon-shoucangcang"></i><span>30</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="grid__item col-lg-3 col-md-4" data-size="1280x853">
+                        <a href="/app/img/original/8.jpg" class="img-wrap thumbnail">
+                            <img src="/app/img/thumbs/8.jpg" class="img-responsive carousel-inner center-block"/>
+                            <div class="description description--grid">
+                                <h3>Senseless Suffering</h3>
+                                <p>The question is not, 'Can they reason?' nor, 'Can they talk?' but rather, 'Can they suffer?' <em>&mdash; Jeremy Bentham</em></p>
+                                <div class="details">
+                                    <ul>
+                                        <li><i class="icon iconfont icon-liulan"></i><span>20</span></li>
+                                        <li><i class="icon iconfont icon-shoucangcang"></i><span>30</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="grid__item col-lg-3 col-md-4" data-size="865x1280">
+                        <a href="/app/img/original/9.jpg" class="img-wrap thumbnail">
+                            <img src="/app/img/thumbs/9.jpg" class="img-responsive carousel-inner center-block"/>
+                            <div class="description description--grid">
+                                <h3>Rabbit Intelligence</h3>
+                                <p>If a rabbit defined intelligence the way man does, then the most intelligent animal would be a rabbit, followed by the animal most willing to obey the commands of a rabbit. <em>&mdash; Robert Brault</em></p>
+                                <div class="details">
+                                    <ul>
+                                        <li><i class="icon iconfont icon-liulan"></i><span>20</span></li>
+                                        <li><i class="icon iconfont icon-shoucangcang"></i><span>30</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="grid__item col-lg-3 col-md-4" data-size="1280x1280">
+                        <a href="/app/img/original/10.jpg" class="img-wrap thumbnail">
+                            <img src="/app/img/thumbs/10.jpg" class="img-responsive carousel-inner center-block" />
+                            <div class="description description--grid">
+                                <h3>Friendly Terms</h3>
+                                <p>Man is the only animal that can remain on friendly terms with the victims he intends to eat until he eats them. <em>&mdash; Samuel Butler</em></p>
+                                <div class="details">
+                                    <ul>
+                                        <li><i class="icon iconfont icon-liulan"></i><span>20</span></li>
+                                        <li><i class="icon iconfont icon-shoucangcang"></i><span>30</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <!-- /grid -->
+                <div class="preview">
+                    <button class="action action--close"><i class="fa fa-times"></i><span class="text-hidden">Close</span></button>
+                    <div class="description description--preview"></div>
+                </div>
+                <!-- /preview -->
+            </div> <!-- /瀑布流布局 -->
+        </div>
+
+        <!-- 弹出遮罩层 -->
+        <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="panel panel-danger">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">意见反馈</h3>
+                        </div>
+                        <div class="panel-body modal-body">
+                            <div class="input-group" style="padding-top: 15px">
+                                <span class="input-group-addon"></span>
+                                <input type="text" class="form-control" placeholder="您的电话" aria-describedby="basic-addon1">
+                            </div>
+                            <div class="input-group" style="padding-top: 10px">
+                                <span class="input-group-addon"></span>
+                                <input type="text" class="form-control" placeholder="您的意见" aria-describedby="basic-addon1">
+                            </div>
+                            <button class="btn btn-info" style="width: 100%;margin-top: 30px;margin-left: auto;margin-right: auto;">反馈意见</button>
+                        </div>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+        <div class="modal fade bs-example-modal-sm2" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel2">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="panel panel-danger">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">装修报价计算器</h3>
+                        </div>
+                        <div class="panel-body modal-body">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    显示计价
+                                </div>
+                            </div>
+                            <div class="input-group" style="padding-top: 10px">
+                                <span class="input-group-addon"></span>
+                                <input type="text" id="cityChoice" class="form-control" placeholder="您所在城市" aria-describedby="basic-addon1">
+                                <input type="hidden" id="province" value="">
+                                <input type="hidden" id="city" value="">
+                            </div>
+                            <div class="input-group" style="padding-top: 15px">
+                                <span class="input-group-addon"></span>
+                                <input type="text" class="form-control" placeholder="房屋面积" aria-describedby="basic-addon1">
+                            </div>
+                            <div class="input-group" style="padding-top: 10px">
+                                <span class="input-group-addon"></span>
+                                <input type="text" class="form-control" placeholder="输入手机号码，获取报价结果" aria-describedby="basic-addon1">
+                            </div>
+                            <button class="btn btn-info" style="width: 100%;margin-top: 30px;margin-left: auto;margin-right: auto;">获取报价</button>
+                        </div>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+        <!-- 右侧导航栏 -->
+        <div class="col-lg-1 col-md-1">
+            <div class="right-toolbar">
+                <div class="iconfont icon-bianji-copy" data-toggle="modal" data-target=".bs-example-modal-sm" title="意见反馈"></div>
+
+                <div class="iconfont icon-jisuan" data-toggle="modal" data-target=".bs-example-modal-sm2" title="智能计价"></div>
+
+                <div class="iconfont icon-erweima" data-toggle="tooltip" data-placement="right" title="扫码有礼"></div>
+            </div>
+
+            <div class="iconfont icon-arrowupcircle1 goTop"></div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <div class="panel-footer" id="footer">
+        <div class="row" style="padding-top: 20px">
+            <div class="col-lg-1 col-md-1"></div>
+            <div class="col-lg-10 col-md-10">
+                <div class="col-lg-3 col-md-3"></div>
+                <div class="col-lg-6 col-md-6 text-center font-footer-info">Tel：400-800-9446    Add：平阳南路晋阳解口君怡创新城5号商铺3层</div>
+                <div class="col-lg-3 col-md-3 text-right">
+                    <button class="btn btn-default">
+                        顶层国际集团→
+                    </button>
+                </div>
+            </div>
+            <div class="col-lg-1 col-md-1"></div>
+        </div>
+        <div class="row" style="padding-top: 5px;padding-bottom: 10px">
+            <div class="col-lg-1 col-md-1"></div>
+            <div class="col-lg-10 col-md-10">
+                <div class="col-lg-3 col-md-2"></div>
+                <div class="col-lg-6 col-md-8 text-center">
+                    <div class="col-lg-1 col-md-1"></div>
+                    <div class="col-lg-2 col-md-2">
+                        <a href="#">
+                            关于我们
+                        </a>
+                    </div>
+                    <div class="col-lg-2 col-md-2">
+                        <a href="#">
+                            公司简介
+                        </a>
+                    </div>
+                    <div class="col-lg-2 col-md-2">
+                        <a href="#">
+                            门店信息
+                        </a>
+                    </div>
+                    <div class="col-lg-2 col-md-2">
+                        <a href="#">
+                            诚聘英才
+                        </a>
+                    </div>
+                    <div class="col-lg-2 col-md-2">
+                        <a href="#">
+                            意见反馈
+                        </a>
+                    </div>
+                    <div class="col-lg-1 col-md-1"></div>
+                </div>
+                <div class="col-lg-3 col-md-2"></div>
+            </div>
+            <div class="col-lg-1 col-md-1"></div>
+        </div>
+        <div class="row">
+            <div class="col-lg-1 col-md-1" ></div>
+            <div class="col-lg-10 col-md-10">
+                <div style="background-color: #3c3c3c;height: 1px;border-top: groove"></div>
+            </div>
+            <div class="col-lg-1 col-md-1"></div>
+        </div>
+        <div class="row">
+            <div class="col-lg-1 col-md-1" ></div>
+            <div class="col-lg-10 col-md-10 text-center font-footer-company" style="padding: 10px;">
+                © 2016 顶层国际设计装饰有限公司 All Rights Reserved  <span style="padding-left: 10px">晋ICP备0548614123号</span>
+            </div>
+            <div class="col-lg-1 col-md-1"></div>
+        </div>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script> -->
+    <script src="/app/js/jquery-1.11.2.min.js" type="text/javascript"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/app/js/bootstrap.min.js"></script>
+    <script src="/app/js/jquery-multiple-filter.js"></script>
+    <script src="/app/js/imagesloaded.pkgd.min.js"></script>
+    <script src="/app/js/masonry.pkgd.min.js"></script>
+    <script src="/app/js/classie.js"></script>
+    <script src="/app/js/main.js"></script>
+    <script src="/app/js/jquery.goup.min.js"></script>
+    <script type="text/javascript" src="/app/js/cityData.js"></script>
+    <script type="text/javascript" src="/app/js/cityPicker.js"></script>
+
+    <script type="text/javascript">
+        var cityPicker = new IIInsomniaCityPicker({
+            data: cityData,
+            target: '#cityChoice',
+            valType: 'k-v',
+            hideCityInput: '#city',
+            hideProvinceInput: '#province',
+            callback: function(city_id){
+                alert(city_id);
+            }
+        });
+
+        cityPicker.init();
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            // browser window scroll (in pixels) after which the "back to top" link is shown
+            var offset = 50,
+            //browser window scroll (in pixels) after which the "back to top" link opacity is reduced
+                    offset_opacity = 1200,
+            //duration of the top scrolling animation (in ms)
+                    scroll_top_duration = 700,
+            //grab the "back to top" link
+                    $back_to_top = $('.goTop');
+
+            //hide or show the "back to top" link
+            $(window).scroll(function(){
+                ( $(this).scrollTop() > offset ) ? $back_to_top.addClass('cd-is-visible') : $back_to_top.removeClass('cd-is-visible cd-fade-out');
+                if( $(this).scrollTop() > offset_opacity ) {
+                    $back_to_top.addClass('cd-fade-out');
+                }
+            });
+
+            //smooth scroll to top
+            $back_to_top.on('click', function(event){
+                event.preventDefault();
+                $('body,html').animate({
+                            scrollTop: 0 ,
+                        }, scroll_top_duration
+                );
+            });
+
+
+            $('[data-toggle="tooltip"]').tooltip()
+        });
+        $(function(){
+            jfmObj = $('#jmf').jqMultipleFilter({
+                data:[
+                    {
+                        type: 'select',
+                        field: 'kj', fieldText: '空间',
+                        items:[
+                            {item: 'kt', itemText: '客厅'},
+                            {item: 'ws', itemText: '卧室'},
+                            {item: 'ct', itemText: '餐厅'},
+                            {item: 'cf', itemText: '厨房'},
+                            {item: 'wsj', itemText: '卫生间'},
+                            {item: 'yt', itemText: '阳台'},
+                            {item: 'sf', itemText: '书房'},
+                            {item: 'xg', itemText: '玄关'},
+                            {item: 'etf', itemText: '儿童房'},
+                            {item: 'ymj', itemText: '衣帽间'},
+                            {item: 'hy', itemText: '花园'},
+                            {item: 'gl', itemText: '阁楼'}
+                        ]
+                    },
+                    {
+                        type: 'select',
+                        field: 'bj', fieldText: '布局',
+                        items:[
+                            {item: 'bjq', itemText: '背景墙'},
+                            {item: 'dd', itemText: '吊顶'},
+                            {item: 'gd', itemText: '隔断'},
+                            {item: 'pc', itemText: '飘窗'},
+                            {item: 'ttm', itemText: '榻榻米'},
+                            {item: 'cg', itemText: '橱柜'},
+                            {item: 'bt', itemText: '吧台'},
+                            {item: 'jg', itemText: '酒柜'},
+                            {item: 'bgj', itemText: '博古架'},
+                            {item: 'yc', itemText: '衣橱'},
+                            {item: 'xg', itemText: '鞋柜'}
+
+                        ]
+                    },
+                    {
+                        type: 'select',
+                        field: 'fg', fieldText: '风格',
+                        items:[
+                            {item: 'jy', itemText: '简约'},
+                            {item: 'xd', itemText: '现代'},
+                            {item: 'zs', itemText: '中式'},
+                            {item: 'ms', itemText: '美式'},
+                            {item: 'rs', itemText: '日式'},
+                            {item: 'os', itemText: '欧式'},
+                            {item: 'fs', itemText: '法式'},
+                            {item: 'ty', itemText: '田园'},
+                            {item: 'dzh', itemText: '地中海'},
+                            {item: 'xgd', itemText: '新古典'},
+                            {item: 'hd', itemText: '混搭'},
+                            {item: 'yj', itemText: '宜家'}
+
+                        ]
+                    },
+                    {
+                        type: 'color',
+                        field: 'ys', fieldText: '颜色',
+                        items:[
+                            {item: 'bs', itemText: '#ffffff'},
+                            {item: 'dhs', itemText: '#f4e8b1'},
+                            {item: 'rs', itemText: '#f4cdb0'},
+                            {item: 'mgh', itemText: '#eca9b1'},
+                            {item: 'dfs', itemText: '#f4c6cf'},
+                            {item: 'hls', itemText: '#dfe6ae'},
+                            {item: 'dls', itemText: '#bcd1e6'},
+                            {item: 'dzs', itemText: '#ccb8e0'},
+                            {item: 'shs', itemText: '#999999'},
+                            {item: 'qhs', itemText: '#bfbfbf'},
+                            {item: 'zs', itemText: '#b19475'},
+                            {item: 'dzs', itemText: '#d9bfa2'}
+                        ]
+                    }
+                ],
+                onSelect: function(data, item, val){
+                    console.log(data, item, val);
+                },
+                onRemove: function(data, item){
+                    console.log(data, item);
+                }
+            });
+        });
+
+    </script>
+    <script>
+        (function() {
+            var support = { transitions: Modernizr.csstransitions },
+            // transition end event name
+                    transEndEventNames = { 'WebkitTransition': 'webkitTransitionEnd', 'MozTransition': 'transitionend', 'OTransition': 'oTransitionEnd', 'msTransition': 'MSTransitionEnd', 'transition': 'transitionend' },
+                    transEndEventName = transEndEventNames[ Modernizr.prefixed( 'transition' ) ],
+                    onEndTransition = function( el, callback ) {
+                        var onEndCallbackFn = function( ev ) {
+                            if( support.transitions ) {
+                                if( ev.target != this ) return;
+                                this.removeEventListener( transEndEventName, onEndCallbackFn );
+                            }
+                            if( callback && typeof callback === 'function' ) { callback.call(this); }
+                        };
+                        if( support.transitions ) {
+                            el.addEventListener( transEndEventName, onEndCallbackFn );
+                        }
+                        else {
+                            onEndCallbackFn();
+                        }
+                    };
+
+            new GridFx(document.querySelector('.grid'), {
+                imgPosition : {
+                    x : -0.5,
+                    y : 1
+                },
+                onOpenItem : function(instance, item) {
+                    instance.items.forEach(function(el) {
+                        if(item != el) {
+                            var delay = Math.floor(Math.random() * 50);
+                            el.style.WebkitTransition = 'opacity .5s ' + delay + 'ms cubic-bezier(.7,0,.3,1), -webkit-transform .5s ' + delay + 'ms cubic-bezier(.7,0,.3,1)';
+                            el.style.transition = 'opacity .5s ' + delay + 'ms cubic-bezier(.7,0,.3,1), transform .5s ' + delay + 'ms cubic-bezier(.7,0,.3,1)';
+                            el.style.WebkitTransform = 'scale3d(0.1,0.1,1)';
+                            el.style.transform = 'scale3d(0.1,0.1,1)';
+                            el.style.opacity = 0;
+                        }
+                    });
+                    $('#header').hide();
+                },
+                onCloseItem : function(instance, item) {
+                    instance.items.forEach(function(el) {
+                        if(item != el) {
+                            el.style.WebkitTransition = 'opacity .4s, -webkit-transform .4s';
+                            el.style.transition = 'opacity .4s, transform .4s';
+                            el.style.WebkitTransform = 'scale3d(1,1,1)';
+                            el.style.transform = 'scale3d(1,1,1)';
+                            el.style.opacity = 1;
+
+                            onEndTransition(el, function() {
+                                el.style.transition = 'none';
+                                el.style.WebkitTransform = 'none';
+                            });
+                        }
+                    });
+                    $('#header').show();
+                }
+            });
+        })();
+    </script>
+</body>
+</html>

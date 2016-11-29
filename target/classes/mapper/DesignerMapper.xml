@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dcgj.web.dao.DesignerMapper" >
+  <resultMap id="BaseResultMap" type="com.dcgj.web.entity.Designer" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="designer_id" property="designerId" jdbcType="INTEGER" />
+    <result column="designer_name" property="designerName" jdbcType="VARCHAR" />
+    <result column="Instruction" property="instruction" jdbcType="VARCHAR" />
+    <result column="designer_avatar" property="designerAvatar" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, designer_id, designer_name, Instruction, designer_avatar
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from designer
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from designer
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.dcgj.web.entity.Designer" >
+    insert into designer (id, designer_id, designer_name, 
+      Instruction, designer_avatar)
+    values (#{id,jdbcType=INTEGER}, #{designerId,jdbcType=INTEGER}, #{designerName,jdbcType=VARCHAR}, 
+      #{instruction,jdbcType=VARCHAR}, #{designerAvatar,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dcgj.web.entity.Designer" >
+    insert into designer
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="designerId != null" >
+        designer_id,
+      </if>
+      <if test="designerName != null" >
+        designer_name,
+      </if>
+      <if test="instruction != null" >
+        Instruction,
+      </if>
+      <if test="designerAvatar != null" >
+        designer_avatar,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="designerId != null" >
+        #{designerId,jdbcType=INTEGER},
+      </if>
+      <if test="designerName != null" >
+        #{designerName,jdbcType=VARCHAR},
+      </if>
+      <if test="instruction != null" >
+        #{instruction,jdbcType=VARCHAR},
+      </if>
+      <if test="designerAvatar != null" >
+        #{designerAvatar,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dcgj.web.entity.Designer" >
+    update designer
+    <set >
+      <if test="designerId != null" >
+        designer_id = #{designerId,jdbcType=INTEGER},
+      </if>
+      <if test="designerName != null" >
+        designer_name = #{designerName,jdbcType=VARCHAR},
+      </if>
+      <if test="instruction != null" >
+        Instruction = #{instruction,jdbcType=VARCHAR},
+      </if>
+      <if test="designerAvatar != null" >
+        designer_avatar = #{designerAvatar,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dcgj.web.entity.Designer" >
+    update designer
+    set designer_id = #{designerId,jdbcType=INTEGER},
+      designer_name = #{designerName,jdbcType=VARCHAR},
+      Instruction = #{instruction,jdbcType=VARCHAR},
+      designer_avatar = #{designerAvatar,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

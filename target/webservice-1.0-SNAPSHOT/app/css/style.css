@@ -1,0 +1,23 @@
+.shadow-design-designer {
+    -moz-box-shadow:-5px 0px 10px #333333;
+    -webkit-box-shadow:-5px 0px 10px #333333;
+    box-shadow:-5px 0px 10px #333333;
+}
+
+.shadow-design-nav {
+    -moz-box-shadow:0px 5px 15px #848484;
+    -webkit-box-shadow:0px 5px 15px #848484;
+    box-shadow:0px 5px 15px #848484;
+}
+
+.img-responsive{
+	display:block;
+	max-width:100%;
+	height:auto;
+	margin-right:auto;
+	margin-left:auto
+}
+
+#footer{
+    background-color: #c5c5c5;
+}

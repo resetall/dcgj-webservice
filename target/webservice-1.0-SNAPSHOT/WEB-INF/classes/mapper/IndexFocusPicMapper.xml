@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dcgj.web.dao.IndexFocusPicMapper" >
+  <resultMap id="BaseResultMap" type="com.dcgj.web.entity.IndexFocusPic" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="url" property="url" jdbcType="VARCHAR" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="summary" property="summary" jdbcType="VARCHAR" />
+    <result column="isAlive" property="isalive" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, url, description, summary, isAlive
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from index_focusPic
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from index_focusPic
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.dcgj.web.entity.IndexFocusPic" >
+    insert into index_focusPic (id, url, description, 
+      summary, isAlive)
+    values (#{id,jdbcType=INTEGER}, #{url,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
+      #{summary,jdbcType=VARCHAR}, #{isalive,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dcgj.web.entity.IndexFocusPic" >
+    insert into index_focusPic
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="url != null" >
+        url,
+      </if>
+      <if test="description != null" >
+        description,
+      </if>
+      <if test="summary != null" >
+        summary,
+      </if>
+      <if test="isalive != null" >
+        isAlive,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="url != null" >
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="summary != null" >
+        #{summary,jdbcType=VARCHAR},
+      </if>
+      <if test="isalive != null" >
+        #{isalive,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dcgj.web.entity.IndexFocusPic" >
+    update index_focusPic
+    <set >
+      <if test="url != null" >
+        url = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="summary != null" >
+        summary = #{summary,jdbcType=VARCHAR},
+      </if>
+      <if test="isalive != null" >
+        isAlive = #{isalive,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dcgj.web.entity.IndexFocusPic" >
+    update index_focusPic
+    set url = #{url,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR},
+      summary = #{summary,jdbcType=VARCHAR},
+      isAlive = #{isalive,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
